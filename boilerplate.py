@@ -7,8 +7,8 @@ import requests
 def scrape(string):
     page_response = requests.get(string, timeout=15)
     if page_response.status_code == 200:
+    	page_content = BeautifulSoup(page_response.content, "html.parser")
         # Do with the response
-    	pass
     else:
         print("Error Fetching the Data")
 
